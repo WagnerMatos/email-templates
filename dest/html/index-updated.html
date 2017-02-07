@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="margin: 0; padding: 0; background: #f6f6f6;">
+<head>
+	<meta charset="UTF-8">
+	<title>MRC</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="margin: 0; padding: 0; background: #f6f6f6;">
+
+	<div class="page-container">
+			
+		<div class="page-wrapper" style="font-family: sans-serif; background: #f6f6f6; margin: 0; padding: 20px 10px 20px 10px; font-size: 13px; margin-left: auto; margin-right: auto; max-width: 650px;">
+
+			<div class="header-logo-wrapper" style="margin-bottom: 10px;">
+				<img src="http://www.sanjinceleski.com/mrc-email/assets/logo-header.png" class="header-logo" style="border: 0; height: 40px;">
+			</div>
+
+			<div class="page" style="border: 1px solid #ebebeb; background: white; margin: 0 auto; color: #333;">
+
+				<div class="page-content" style="padding: 10px 25px 40px 25px; min-height: 150px;">
+					<p style="position: relative; line-height: 140%;">
+	Hi <strong> <%= @user_name %> </strong>,
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	Your order <strong> <%= @order_number %> </strong> has been updated with all the changes you have discussed with us.
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	You can download your order here.
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	<a href="<%= @link_download %>" class="download-cta" style="text-decoration: none; margin: 10px 0 10px 0; padding: 13px 30px 13px 30px; background: #fecb61; text-align: center; display: inline-block; border-radius: 100px; cursor: pointer; font-size: 16px; font-weight: bold; color: #2d293a;">DOWNLOAD</a>
+</p>
+<hr class="section-divider" style="margin: 20px -25px 0 -25px; height: 95px; border: 0; background: url(http://www.sanjinceleski.com/mrc-email/assets/wave-divider.png) center left no-repeat; background-size: contain;">
+<h2 class="section-heading" style="font-size: 22px; font-weight: bold; text-align: center; text-transform: uppercase; margin: 20px 0 0 0;">
+	Note from Shanya
+</h2>	
+
+<h3 class="section-subheading" style="font-size: 19px; font-weight: 100; text-align: center; text-transform: uppercase; margin: 0;">
+	Your Audio Specialist
+</h3>	
+
+<div class="heading-space" style="height: 20px;"></div>
+
+<p style="position: relative; line-height: 140%;">
+	Dear Shopper,				
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	I trust that everything will be to your instructions. If there is anything else I may help you with just reply to this email. If you have a minute to spare please consider leaving us a review here: <a href="https://www.facebook.com/musicradiocreative/reviews/" style="color: #4bc0dc;">https://www.facebook.com/musicradiocreative/reviews/</a> - it always means a lot to the whole team to hear back from our customers.
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	<span class="note-signature-photo note-signature-photo--shayna" style="margin-left: 30px; display: inline-block; width: 110px; height: 110px; margin-top: 10px; float: right; border-radius: 50%; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-image: url(http://www.sanjinceleski.com/mrc-email/assets/team-shayna.jpg);"></span>
+	<hr class="note-signature-divider" style="width: 40px; height: 2px; background: #ccc; border: 0; margin: 20px 0;">
+	<strong>Shayna Smith</strong> <br>
+	Head Of Customer Experience <br>
+	<a href="mailto:shayna@musicradiocreative.com" style="color: #4bc0dc;">shayna@musicradiocreative.com</a>
+</p>
+
+<p class="note-signature-brief" style="position: relative; line-height: 140%; font-size: 80%;">
+	If you're looking for someone to help with your next audio project I am your girl! Contact me anytime, I am usually nearby, as it's most likely raining. I am a workaholic so don't be surprised if you email me late at night and you get a reply straight back. So lets create awesome audio for your next project!
+</p>
+
+				</div>
+
+				<div class="footer-social-wrapper" style="margin: 0 25px 20px 25px;">
+					<div class="footer-social-content" style="padding-top: 20px; text-align: center; border-top: 1px solid #eee;">
+						<a target="_blank" class="footer-social-icon footer-social-icon--fb" href="https://www.facebook.com/musicradiocreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: 0 0;">Facebook</a>
+						<a target="_blank" class="footer-social-icon footer-social-icon--twitter" href="https://twitter.com/musicrcreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: -38px 0;">Twitter</a>
+						<a target="_blank" class="footer-social-icon footer-social-icon--soundcloud" href="https://soundcloud.com/musicradiocreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: -77px 0;">SoundCloud</a>
+						<a target="_blank" class="footer-social-icon footer-social-icon--youtube" href="http://www.youtube.com/user/musicradiocreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: -116px 0;">YouTube</a>
+					</div>
+				</div>
+
+				<div class="footer-logo-wrapper" style="background: #2d293a; padding: 30px 0; text-align: center;">
+					<div class="footer-logo" style="height: 20px; background: url(http://www.sanjinceleski.com/mrc-email/assets/logo-footer.png) center center no-repeat; background-size: 200px;"></div>
+					<span class="footer-copyright" style="font-size: 10px; color: white; opacity: 0.3;">© 2016. Music Radio Creative Ltd</span>
+				</div>
+
+			</div>
+
+			<div class="page-smallprint" style="padding: 15px 30px 0 30px; text-align: center; font-size: 9px; color: #bbb;">			
+				This email address was given to us by you or by one of our customers. If you feel that you have received this email in error, please send an email to <a href="mailto:contact@musicradiocreative.com" style="color: #bbb;">contact@musicradiocreative.com</a>. Music Radio Creative - Registered in England and Wales: 5473283 - Registered Address: Innovation Centre, St Cross Business Park, Newport, Isle of Wight, PO30 5WB, United Kingdom
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

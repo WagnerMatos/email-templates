@@ -1,0 +1,92 @@
+<h2 class="section-heading">
+	Order Details
+</h2>
+
+<div class="heading-space"></div>
+
+<div class="order__heading">
+	<div class="order__heading-title">
+		Product
+	</div>
+	<div class="order__heading-price">
+		<span>
+			Subtotal
+		</span>
+		<span class="order__heading-price-tax">
+			VAT
+		</span>
+		<span class="order__heading-price-total">
+			Total
+		</span>
+	</div>
+</div>
+
+<ul class="order">
+	{% @order.items.each do |item| %}
+	<li class="order__row">
+		<div class="order__title">
+			{%= item['name'] %}
+		</div>
+		<div class="order__price">
+			<span>
+				{%= number_to_currency(item['details']['price'][@order.currency] / 100, unit: "#{@order.currency} ") %}
+			</span>
+			<span class="order__price-tax">
+				{%= number_to_currency(item['tax'] / 100, unit: "#{@order.currency} ") %}
+			</span>
+			<span class="order__price-total">
+				{%= number_to_currency(item['subtotal'] / 100, unit: "#{@order.currency} ") %}
+			</span>
+		</div>
+		<div class="order__details">
+			{% if item['details']['item']['voices'] %}
+				<strong>Voices: </strong>
+				{% item['details']['item']['voices'].each do |voice| %}
+					{%= voice['name'] %}
+				{% end %}
+			{% end %}
+			{% if item['details']['item']['script'] %}
+				<br><strong>Script: </strong>
+				{%= item['details']['item']['script'] %}
+			{% end %}
+			{% if item['details']['item']['addons'] %}
+				<br><strong>Production: </strong>
+				{% item['details']['item']['addons'].each do |k, v| %}
+					{%= v['name'] %}
+				{% end %}
+			{% end %}
+		</div>
+	</li>
+	{% end %}
+</ul>
+
+<div class="badge-offer"></div>
+
+<div class="summary-wrapper">
+	<ul class="summary">
+		<li class="summary__row">
+			<dl class="summary__details">
+				<dt class="summary__title">Order Subtotal</dt>
+				<dd class="summary__description">
+					{%= number_to_currency(@order['subtotal'].to_f / 100, unit: "#{@order.currency} ", precision: 2) %}
+				</dd>
+			</dl>
+		</li>
+		<li class="summary__row">
+			<dl class="summary__details">
+				<dt class="summary__title">VAT</dt>
+				<dd class="summary__description">
+					{%= number_to_currency(@order['subtotal_tax'].to_f / 100, unit: "#{@order.currency} ", precision: 2) %}
+				</dd>
+			</dl>
+		</li>
+		<li class="summary__row">
+			<dl class="summary__details">
+				<dt class="summary__title">Order Total</dt>
+				<dd class="summary__description">
+					{%= number_to_currency(@order['total'].to_f / 100, unit: "#{@order.currency} ", precision: 2) %}
+				</dd>
+			</dl>			
+		</li>
+	</ul>
+</div>

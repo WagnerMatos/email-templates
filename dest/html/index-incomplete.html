@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html style="margin: 0; padding: 0; background: #f6f6f6;">
+<head>
+	<meta charset="UTF-8">
+	<title>MRC</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="margin: 0; padding: 0; background: #f6f6f6;">
+
+	<div class="page-container">
+			
+		<div class="page-wrapper" style="font-family: sans-serif; background: #f6f6f6; margin: 0; padding: 20px 10px 20px 10px; font-size: 13px; margin-left: auto; margin-right: auto; max-width: 650px;">
+
+			<div class="header-logo-wrapper" style="margin-bottom: 10px;">
+				<img src="http://www.sanjinceleski.com/mrc-email/assets/logo-header.png" class="header-logo" style="border: 0; height: 40px;">
+			</div>
+
+			<div class="page" style="border: 1px solid #ebebeb; background: white; margin: 0 auto; color: #333;">
+
+				<div class="page-content" style="padding: 10px 25px 40px 25px; min-height: 150px;">
+					<p style="position: relative; line-height: 140%;">
+	Hi <strong> <%= @user_name %> </strong>,
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	We have noticed you tried to complete the purchase with us. Something however went wrong and we couldn’t process it successfully.
+</p>
+
+<p style="position: relative; line-height: 140%;">
+	<a href="<%= @link_complete_order %>" style="color: #4bc0dc;">CLICK HERE</a> to complete your order now.
+</p>
+<h2 class="section-heading" style="font-size: 22px; font-weight: bold; text-align: center; text-transform: uppercase; margin: 20px 0 0 0;">
+	Order Details
+</h2>
+
+<div class="heading-space" style="height: 20px;"></div>
+
+<div class="order__heading" style="overflow: hidden; margin-bottom: 20px; color: #bbb; font-size: 12px;">
+	<div class="order__heading-title" style="float: left; font-weight: bold; padding-bottom: 5px;">
+		Product
+	</div>
+	<div class="order__heading-price" style="float: right; text-align: right; font-weight: bold;">
+		<span>
+			Subtotal
+		</span>
+		<span class="order__heading-price-tax" style="display: inline-block; width: 40px;">
+			VAT
+		</span>
+		<span class="order__heading-price-total" style="width: 73px; display: inline-block;">
+			Total
+		</span>
+	</div>
+</div>
+
+<ul class="order" style="list-style: none; padding: 0 0 0 15px; margin: 0; padding-left: 0;">
+	<% @order.items.each do |item| %>
+	<li class="order__row" style="line-height: 140%; margin-bottom: 20px;">
+		<div class="order__title" style="float: left; font-weight: bold; padding-bottom: 5px;">
+			<%= @item.name %>
+		</div>
+		<div class="order__price" style="float: right; text-align: right; font-weight: bold;">
+			<span>
+				<%= @item.price_subtotal %>
+			</span>
+			<span class="order__price-tax" style="display: inline-block; width: 40px;">
+				<%= @item.price_tax_percentage %>
+			</span>
+			<span class="order__price-total" style="width: 70px; display: inline-block;">
+				<%= @item.price_total %>
+			</span>
+		</div>
+		<div class="order__details" style="clear: both; border-top: 2px dotted #bbb; padding-top: 5px; font-size: 12px;">
+			<%= @item.description %>
+		</div>
+	</li>
+	<% end %>
+</ul>
+
+<div class="summary-wrapper" style="margin-top: 30px; text-align: right;">
+	<ul class="summary" style="list-style: none; padding: 0 0 0 15px; margin: 0; display: inline-block;">
+		<li class="summary__row" style="line-height: 140%; margin-bottom: 5px; border-bottom: 2px dotted #bbb;">
+			<dl class="summary__details" style="margin: 0; font-weight: bold; overflow: hidden;">
+				<dt class="summary__title" style="margin: 0; display: inline-block; float: left; text-align: left; margin-bottom: 5px;">Order Subtotal</dt>
+				<dd class="summary__description" style="margin: 0; display: inline-block; float: right; margin-bottom: 5px; padding-left: 30px;">
+					<%= @order_subtotal %>
+				</dd>
+			</dl>
+		</li>
+		<li class="summary__row" style="line-height: 140%; margin-bottom: 5px; border-bottom: 2px dotted #bbb;">
+			<dl class="summary__details" style="margin: 0; font-weight: bold; overflow: hidden;">
+				<dt class="summary__title" style="margin: 0; display: inline-block; float: left; text-align: left; margin-bottom: 5px;">VAT</dt>
+				<dd class="summary__description" style="margin: 0; display: inline-block; float: right; margin-bottom: 5px; padding-left: 30px;">
+					<%= @order_vat %>
+				</dd>
+			</dl>
+		</li>
+		<li class="summary__row" style="line-height: 140%; margin-bottom: 5px; border-bottom: 2px dotted #bbb;">
+			<dl class="summary__details" style="margin: 0; font-weight: bold; overflow: hidden;">
+				<dt class="summary__title" style="margin: 0; display: inline-block; float: left; text-align: left; margin-bottom: 5px;">Order Total</dt>
+				<dd class="summary__description" style="margin: 0; display: inline-block; float: right; margin-bottom: 5px; padding-left: 30px;">
+					<%= @order_total %>
+				</dd>
+			</dl>			
+		</li>
+	</ul>
+</div>
+
+				</div>
+
+				<div class="footer-social-wrapper" style="margin: 0 25px 20px 25px;">
+					<div class="footer-social-content" style="padding-top: 20px; text-align: center; border-top: 1px solid #eee;">
+						<a target="_blank" class="footer-social-icon footer-social-icon--fb" href="https://www.facebook.com/musicradiocreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: 0 0;">Facebook</a>
+						<a target="_blank" class="footer-social-icon footer-social-icon--twitter" href="https://twitter.com/musicrcreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: -38px 0;">Twitter</a>
+						<a target="_blank" class="footer-social-icon footer-social-icon--soundcloud" href="https://soundcloud.com/musicradiocreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: -77px 0;">SoundCloud</a>
+						<a target="_blank" class="footer-social-icon footer-social-icon--youtube" href="http://www.youtube.com/user/musicradiocreative" style="color: #4bc0dc; display: inline-block; overflow: hidden; text-indent: -9999px; width: 40px; height: 40px; margin: 0 5px; background: url(http://www.sanjinceleski.com/mrc-email/assets/social.png) no-repeat; background-size: auto 40px; background-position: -116px 0;">YouTube</a>
+					</div>
+				</div>
+
+				<div class="footer-logo-wrapper" style="background: #2d293a; padding: 30px 0; text-align: center;">
+					<div class="footer-logo" style="height: 20px; background: url(http://www.sanjinceleski.com/mrc-email/assets/logo-footer.png) center center no-repeat; background-size: 200px;"></div>
+					<span class="footer-copyright" style="font-size: 10px; color: white; opacity: 0.3;">© 2016. Music Radio Creative Ltd</span>
+				</div>
+
+			</div>
+
+			<div class="page-smallprint" style="padding: 15px 30px 0 30px; text-align: center; font-size: 9px; color: #bbb;">			
+				This email address was given to us by you or by one of our customers. If you feel that you have received this email in error, please send an email to <a href="mailto:contact@musicradiocreative.com" style="color: #bbb;">contact@musicradiocreative.com</a>. Music Radio Creative - Registered in England and Wales: 5473283 - Registered Address: Innovation Centre, St Cross Business Park, Newport, Isle of Wight, PO30 5WB, United Kingdom
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

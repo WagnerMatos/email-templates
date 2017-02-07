@@ -1,0 +1,78 @@
+<h2 class="section-heading">
+	Order Details
+</h2>
+
+<div class="heading-space"></div>
+
+<div class="order__heading">
+	<div class="order__heading-title">
+		Product
+	</div>
+	<div class="order__heading-price">
+		<span>
+			Subtotal
+		</span>
+		<span class="order__heading-price-tax">
+			VAT
+		</span>
+		<span class="order__heading-price-total">
+			Total
+		</span>
+	</div>
+</div>
+
+<ul class="order">
+	{% @order.items.each do |item| %}
+	<li class="order__row">
+		<div class="order__title">
+			{%= @item.name %}
+		</div>
+		<div class="order__price">
+			<span>
+				{%= @item.price_subtotal %}
+			</span>
+			<span class="order__price-tax">
+				{%= @item.price_tax_percentage %}
+			</span>
+			<span class="order__price-total">
+				{%= @item.price_total %}
+			</span>
+		</div>
+		<div class="order__details">
+			{%= @item.description %}
+			<a href="{%= @item.link_download %}" class="download-btn">DOWNLOAD NOW</a>
+		</div>
+	</li>
+	{% end %}
+</ul>
+
+<div class="badge-offer"></div>
+
+<div class="summary-wrapper">
+	<ul class="summary">
+		<li class="summary__row">
+			<dl class="summary__details">
+				<dt class="summary__title">Order Subtotal</dt>
+				<dd class="summary__description">
+					{%= @order_subtotal %}
+				</dd>
+			</dl>
+		</li>
+		<li class="summary__row">
+			<dl class="summary__details">
+				<dt class="summary__title">VAT</dt>
+				<dd class="summary__description">
+					{%= @order_vat %}
+				</dd>
+			</dl>
+		</li>
+		<li class="summary__row">
+			<dl class="summary__details">
+				<dt class="summary__title">Order Total</dt>
+				<dd class="summary__description">
+					{%= @order_total %}
+				</dd>
+			</dl>
+		</li>
+	</ul>
+</div>
